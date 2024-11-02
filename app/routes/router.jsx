@@ -67,6 +67,9 @@ const Main = styled.main`
   width: 100vw;
   background-color: #0d0d0d;
   overflow: hidden;
+  @media  (max-width:800px) {
+    flex-direction: column;
+  }
 `;
 
 const Light = styled.div`

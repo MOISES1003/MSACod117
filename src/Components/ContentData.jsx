@@ -15,10 +15,8 @@ export function ContentData() {
 
         <p className="carrera">Tecnico en Ingenieria de Software</p>
         <p className="descripcion">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque
-          totam error id! Voluptatibus, id ipsum possimus nisi nobis tempore
-          harum consectetur mollitia eaque est architecto? Soluta eaque eveniet
-          praesentium reiciendis.
+          "Cada línea de código cuenta una historia: accesible, atractiva y
+          lista para el usuario."
         </p>
       </Data>
       {/* <Route path="/" element={<HomePage />} />
@@ -60,8 +58,12 @@ const Content = styled.section`
   align-items: center;
   justify-content: center;
   gap: 20px;
-  /* background-color: red; */
   overflow: hidden;
+  @media (max-width: 800px) {
+    width: 100%;
+    /* padding: 50px; */
+    height: auto;
+  }
 `;
 const Data = styled.div`
   display: flex;
@@ -77,6 +79,7 @@ const Data = styled.div`
   }
   .descripcion {
     max-width: 500px;
+    text-align: center;
   }
   .name {
     /* max-width: 500px; */
@@ -87,6 +90,10 @@ const Data = styled.div`
 `;
 const Name = styled.div`
   /* background-color: red; */
+  @media (max-width: 800px) {
+  font-size: 20px;
+  }
+
 `;
 const Options = styled.div`
   width: 500px;
@@ -119,9 +126,8 @@ const Item = styled.div`
   /* background-color: blue; */
 `;
 const Img = styled.img`
-width: 50px;
-position: absolute;
-left: 10px;
-top: 10px;
-
+  width: 50px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
 `;
