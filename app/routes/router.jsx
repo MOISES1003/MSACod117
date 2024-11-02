@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomePage } from "../Pages/HomePage";
-import { ContentData } from "../Components/ContentData";
+import { HomePage } from "../../src/Pages/HomePage";
+import { ContentData } from "../../src/Components/ContentData";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { IntroScreen } from "../Components/IntroScreen";
-import { Error404Page } from "../Pages/ERROR/Error404Page";
-import { Proyectos } from "../Pages/Proyectos";
-import { Curriculum } from "../Pages/Curriculum";
-import { Componentes } from "../Pages/Componentes";
+import { IntroScreen } from "../../src/Components/IntroScreen";
+import { Error404Page } from "../../src/Pages/ERROR/Error404Page";
+import { Proyectos } from "../../src/Pages/Proyectos";
+import { Curriculum } from "../../src/Pages/Curriculum";
+import { Componentes } from "../../src/Pages/Componentes";
 
 export function MyRouters() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
