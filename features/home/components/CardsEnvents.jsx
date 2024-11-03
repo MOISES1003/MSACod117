@@ -3,7 +3,7 @@ import { BsBoxArrowUpRight } from "react-icons/bs";
 
 export function CardsEnvents({ item }) {
   const url = item.repo.url;
-  
+
   // Suponiendo que item.repo.url contiene algo como '/repos/MOISES1003/MSACod117'
   let cleanedUrl = url.replace(/\/?(api.|repos)\b/gi, "");
 
@@ -22,9 +22,12 @@ export function CardsEnvents({ item }) {
       </Type>
       <Info>
         <div className="contenInfo">
-          <a href={cleanedUrl} target="_blank" rel="noopener noreferrer" className="url">
+          {/* <a href={cleanedUrl} target="_blank" rel="noopener noreferrer" className="url">
             {item.repo.name} <BsBoxArrowUpRight className="icon" />
-          </a>
+          </a> */}
+          <button onClick={() => window.open(cleanedUrl, "_blank")}>
+            {item.repo.name} <BsBoxArrowUpRight className="icon" />
+          </button>
         </div>
         <p>
           Fecha:
