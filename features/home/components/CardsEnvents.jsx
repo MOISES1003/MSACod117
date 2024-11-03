@@ -3,7 +3,15 @@ import { BsBoxArrowUpRight } from "react-icons/bs";
 
 export function CardsEnvents({ item }) {
   const url = item.repo.url;
+  
+  // Suponiendo que item.repo.url contiene algo como '/repos/MOISES1003/MSACod117'
   let cleanedUrl = url.replace(/\/?(api.|repos)\b/gi, "");
+
+  // Asegúrate de que cleanedUrl sea una URL absoluta
+  if (!cleanedUrl.startsWith("http")) {
+    cleanedUrl = `https://github.com${cleanedUrl}`; // Agrega la base URL de GitHub
+  }
+
   return (
     <Card>
       <Type>
@@ -11,7 +19,7 @@ export function CardsEnvents({ item }) {
       </Type>
       <Info>
         <div className="contenInfo">
-          <a href={cleanedUrl} target="_blank" className="url">
+          <a href={cleanedUrl} target="_blank" rel="noopener noreferrer" className="url">
             {item.repo.name} <BsBoxArrowUpRight className="icon" />
           </a>
         </div>
@@ -24,7 +32,7 @@ export function CardsEnvents({ item }) {
             day: "2-digit",
             month: "2-digit",
             year: "numeric",
-            hour12: true, // Esto añade AM/PM
+            hour12: true,
           })}
         </p>
         <p>Actor: {item.actor.display_login}</p>
@@ -36,6 +44,7 @@ export function CardsEnvents({ item }) {
     </Card>
   );
 }
+
 const Card = styled.div`
   position: relative;
   width: 100%;

@@ -150,7 +150,7 @@ const IntroScreenContainer = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: black; /* Color de fondo */
+  background-color: black; 
   color: white;
   display: flex;
   flex-direction: column;
