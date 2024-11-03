@@ -25,17 +25,12 @@ export function MyRouters() {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setActive(!active); // Cambia a blanco después de 2 segundos
-    }, 5000);
 
-    return () => clearTimeout(timer);
-  },[]);
   return (
     <BrowserRouter>
+    <IntroScreen setActive={setActive} />
       {active ? (
-        <IntroScreen />
+        null
       ) : (
         <Main onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
           <Light
@@ -61,14 +56,15 @@ export function MyRouters() {
 const Main = styled.main`
   display: flex;
   position: relative;
-  /* justify-content: center;
-  align-items: center; */
   height: 100vh;
   width: 100vw;
   background-color: #0d0d0d;
   overflow: hidden;
-  @media  (max-width:800px) {
+  @media (max-width: 800px) {
     flex-direction: column;
+    display: block;
+    overflow-y: auto;
+
   }
 `;
 
@@ -76,8 +72,8 @@ const Light = styled.div`
   position: absolute;
   width: 80vw; /* 50% del ancho de la ventana */
   height: 80vw; /* Mantenemos un círculo al usar el mismo valor */
-  /* max-width: 100vh;
-  max-height: 100vh;  */
+  max-width: 100vh;
+  max-height: 100vh; 
   background: radial-gradient(circle, rgba(10, 69, 231, 0.1), transparent 70%);
   border-radius: 50%; /* Mantenerlo como un círculo */
   pointer-events: none;

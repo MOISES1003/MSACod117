@@ -2,23 +2,29 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import Typewriter from "typewriter-effect";
-export function IntroScreen() {
+export function IntroScreen({ setActive }) {
   const [isVisible, setIsVisible] = useState(true);
+  const [hidden, setHidden] = useState(true);
 
-  // useEffect(() => {
+  useEffect(() => {
+    setActive(false);
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 5000); // Duración de la animación en milisegundos
+    const hiden = setTimeout(() => {
+      setHidden(false);
+    }, 5500); // Duración de la animación en milisegundos
 
-  //     const timer = setTimeout(() => {
-  //       setIsVisible(false);
-  //     }, 1500); // Duración de la animación en milisegundos
-
-  //     return () => clearTimeout(timer); // Limpia el timer si el componente se desmonta
-    
-  // }, []);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(hiden);
+    }; // Limpia el timer si el componente se desmonta
+  }, []);
 
   return (
     <>
-      {isVisible && (
-        <IntroScreenContainer>
+      {hidden ? (
+        <IntroScreenContainer visible={isVisible}>
           <svg
             version="1.1"
             id="Layer_1"
@@ -100,7 +106,7 @@ export function IntroScreen() {
                     typewriter.stop();
                   })
                   .start();
-              }, 2000); // Retrasa el inicio en 3000 ms (3 segundos)
+              }, 1500); // retrasa los segundos que se coloque
             }}
             options={{
               autoStart: false, // Desactiva el inicio automático para controlar el inicio manualmente
@@ -111,7 +117,7 @@ export function IntroScreen() {
             }}
           />
         </IntroScreenContainer>
-      )}
+      ) : null}
     </>
   );
 }
@@ -152,9 +158,24 @@ const IntroScreenContainer = styled.div`
   justify-content: center;
   align-items: center;
   /* animation: ${flashIntro} 1.5s ease-out forwards; */
+  transition: all 0.5s ease;
+  opacity: ${(props) => (props.visible ? "1" : "0")};
   z-index: 100;
-  svg{
+
+  /* Media queries para ajustar el tamaño del texto en pantallas más pequeñas */
+  @media (max-width: 800px) {
+    font-size: 30px; /* Tamaño de fuente para pantallas pequeñas */
+  }
+
+  @media (max-width: 500px) {
+    font-size: 24px; /* Tamaño de fuente para pantallas muy pequeñas */
+  }
+  svg {
     animation: ${flashIntro} 1.5s ease-out forwards;
+    @media (max-width: 800px) {
+      width: 150px;
+      height: 150px;
+    }
   }
   .svg-path {
     stroke: white; /* Color del borde */
@@ -162,7 +183,7 @@ const IntroScreenContainer = styled.div`
     stroke-width: 3;
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
-    animation: draw 3s linear forwards; /* Duración y tipo de animación */
+    animation: draw 2s linear forwards; /* Duración y tipo de animación */
   }
 
   @keyframes draw {

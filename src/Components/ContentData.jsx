@@ -19,10 +19,6 @@ export function ContentData() {
           lista para el usuario."
         </p>
       </Data>
-      {/* <Route path="/" element={<HomePage />} />
-            <Route path="/proyectos" element={<Proyectos />} />
-            <Route path="/curriculum" element={<Curriculum />} />
-            <Route path="/componente" element={<Componentes />} /> */}
       <Options>
         <Item>
           <Link to="/proyectos">
@@ -51,7 +47,7 @@ const Content = styled.section`
   height: 100vh;
   width: 40vw;
   background-color: transparent;
-  /* background-color:Red; */
+  /* background-color: Red; */
   color: white;
   display: flex;
   flex-direction: column;
@@ -60,9 +56,8 @@ const Content = styled.section`
   gap: 20px;
   overflow: hidden;
   @media (max-width: 800px) {
-    width: 100%;
-    /* padding: 50px; */
-    height: auto;
+    width: 100vw;
+    height: 600px;
   }
 `;
 const Data = styled.div`
@@ -76,9 +71,14 @@ const Data = styled.div`
   .carrera {
     font-weight: 800;
     font-size: 20px;
+    @media (max-width: 800px) {
+      font-size: 15px;
+  }
   }
   .descripcion {
     max-width: 500px;
+    /* width: 100%; */
+    padding: 5px;
     text-align: center;
   }
   .name {
@@ -86,22 +86,28 @@ const Data = styled.div`
     padding: 5px;
     font-size: 50px;
     cursor: pointer;
+    @media (max-width: 800px) {
+      font-size: 30px;
+      text-align: center;
+    }
   }
 `;
 const Name = styled.div`
-  /* background-color: red; */
-  @media (max-width: 800px) {
-  font-size: 20px;
-  }
-
+/* background-color: red; */
+/* display:flex; */
 `;
 const Options = styled.div`
-  width: 500px;
+  width:80%;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  /* background-color: red; */
   align-items: start;
+  @media (max-width: 800px) {
+    flex-direction: row; 
+    flex-wrap: wrap;
+    justify-content:center;
+    
+    }
 `;
 const Item = styled.div`
   /* padding: 5px; */

@@ -16,7 +16,21 @@ export const fetchGitStarred = () => async(dispatch) => {
         );
 
         const starsData = await starsResponse.json();
-        dispatch(fetchStarredSuccess(starsData));
+        // Obtener lenguajes para cada evento que tenga un repositorio y un languages_url válido
+        const eventsWithLanguages = await Promise.all(
+            starsData.map(async(event) => {
+                // Verificar si existe languages_url en el repositorio
+                if (event.languages_url) {
+                    const languagesResponse = await fetch(event.languages_url);
+                    const languagesData = await languagesResponse.json();
+                    // Agregar los lenguajes al evento
+                    return {...event, languages: languagesData };
+                }
+                // Si no tiene repo o languages_url, retornar el evento sin lenguajes
+                return event;
+            })
+        );
+        dispatch(fetchStarredSuccess(eventsWithLanguages));
     } catch (error) {
         dispatch(Failure("Error fetching events:" + error.toString()));
     }
