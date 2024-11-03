@@ -12,6 +12,9 @@ export function CardsEnvents({ item }) {
     cleanedUrl = `https://github.com${cleanedUrl}`; // Agrega la base URL de GitHub
   }
 
+  // Quitar el dominio de la URL si existe
+  cleanedUrl = cleanedUrl.replace(/msa-cod117\.vercel\.app/g, "");
+
   return (
     <Card>
       <Type>
@@ -53,7 +56,7 @@ const Card = styled.div`
   transition: all 0.3s ease;
   padding: 10px;
   border-radius: 10px;
-  display: fleX;
+  display: flex; /* Cambié fleX por flex */
   gap: 10px;
   cursor: pointer;
   border-top: 1px solid transparent; /* Borde invisible por defecto */
@@ -67,8 +70,8 @@ const Card = styled.div`
     flex-direction: column;
   }
 `;
+
 const Type = styled.div`
-  /* background-color: red; */
   min-width: 100px;
   max-width: 100px;
   color: rgb(230, 231, 231);
@@ -77,6 +80,7 @@ const Type = styled.div`
     top: -15px;
   }
 `;
+
 const Info = styled.div`
   width: 100%;
   .contenInfo {
@@ -107,7 +111,5 @@ const Info = styled.div`
         }
       }
     }
-
-    /* width: 100%; */
   }
 `;
