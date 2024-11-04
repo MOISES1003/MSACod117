@@ -15,12 +15,6 @@ export function HomePage() {
   return (
     <Page>
       <h1>{error}</h1>
-      <button onClick={()=>{
-        console.log(events)
-        console.log(starred)
-      }}>
-        mostrar
-      </button>
       <Content>
         <ContenValues>
           <h2> Actividades de GitHub</h2>
