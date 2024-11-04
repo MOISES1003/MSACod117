@@ -13,7 +13,7 @@ export function CardsEnvents({ item }) {
   // }
 
   // Quitar el dominio de la URL si existe
-  cleanedUrl = cleanedUrl.replace(/msa-cod117\.vercel\.app/g, "");
+  // cleanedUrl = cleanedUrl.replace(/msa-cod117\.vercel\.app/g, "");
 
   return (
     <Card>
