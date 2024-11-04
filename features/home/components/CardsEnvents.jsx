@@ -2,7 +2,11 @@ import styled from "styled-components";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 
 export function CardsEnvents({ item }) {
-  const url = item.repo.url.replace(/\/?(api.|repos)\b/gi, "");
+  // Aplica el replace y construye la URL completa
+  const url = item.repo.url.replace(
+    /https?:\/\/api\.github\.com\/repos/gi,
+    "https://github.com"
+  );
 
   return (
     <Card>
@@ -11,7 +15,12 @@ export function CardsEnvents({ item }) {
       </Type>
       <Info>
         <div className="contenInfo">
-          <a href={url} target="_blank" rel="noopener noreferrer" className="url">
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="url"
+          >
             {item.repo.name} <BsBoxArrowUpRight className="icon" />
           </a>
         </div>
@@ -20,7 +29,7 @@ export function CardsEnvents({ item }) {
         {item.payload.commits ? (
           <p className="message">Commit: {item.payload.commits[0].message} </p>
         ) : null}
-             {/* <p className="fecha">
+        {/* <p className="fecha">
           {new Date(item.created_at).toLocaleString("es-ES", {
             hour: "2-digit",
             minute: "2-digit",
@@ -71,9 +80,9 @@ const Type = styled.div`
 
 const Info = styled.div`
   width: 100%;
-  display:flex;
-  flex-direction:column;
-  gap:5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   .contenInfo {
     font-size: 13px;
     text-align: end;
@@ -104,6 +113,6 @@ const Info = styled.div`
     }
   }
   @media (max-width: 800px) {
-   font-size: 12px;
+    font-size: 12px;
   }
 `;
