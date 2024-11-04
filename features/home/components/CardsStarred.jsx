@@ -6,7 +6,7 @@ import PHP from "../../../src/assets/languages/php.png";
 import COFFE from "../../../src/assets/languages/coffe.png";
 import GlSL from "../../../src/assets/languages/Gl.png";
 import Ts from "../../../src/assets/languages/TsLogo.png";
-import Pyt from "../../../src/assets/languages/Python.png";
+import Python from "../../../src/assets/languages/python.png";
 import { FaStar } from "react-icons/fa";
 
 export function CardsStarred({ item }) {
@@ -17,7 +17,7 @@ export function CardsStarred({ item }) {
     CoffeeScript: COFFE,
     GLSL: GlSL,
     TypeScript: Ts,
-    Python: Pyt,
+    Python: Python,
     // Añade más lenguajes y sus iconos según sea necesario
   };
 
