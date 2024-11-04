@@ -4,13 +4,13 @@ import { BsBoxArrowUpRight } from "react-icons/bs";
 export function CardsEnvents({ item }) {
   const url = item.repo.url;
   
-  // Suponiendo que item.repo.url contiene algo como '/repos/MOISES1003/MSACod117'
-  let cleanedUrl = url.replace(/\/?(api.|repos)\b/gi, "");
+  // // Suponiendo que item.repo.url contiene algo como '/repos/MOISES1003/MSACod117'
+  // let cleanedUrl = url.replace(/\/?(api.|repos)\b/gi, "");
 
-  // Asegúrate de que cleanedUrl sea una URL absoluta
-  if (!cleanedUrl.startsWith("http")) {
-    cleanedUrl = `https://github.com${cleanedUrl}`; // Agrega la base URL de GitHub
-  }
+  // // Asegúrate de que cleanedUrl sea una URL absoluta
+  // if (!cleanedUrl.startsWith("http")) {
+  //   cleanedUrl = `https://github.com${cleanedUrl}`; // Agrega la base URL de GitHub
+  // }
 
   // Quitar el dominio de la URL si existe
   cleanedUrl = cleanedUrl.replace(/msa-cod117\.vercel\.app/g, "");
@@ -22,7 +22,7 @@ export function CardsEnvents({ item }) {
       </Type>
       <Info>
         <div className="contenInfo">
-          <a href={cleanedUrl} target="_blank" rel="noopener noreferrer" className="url">
+          <a href={url} target="_blank" rel="noopener noreferrer" className="url">
             {item.repo.name} <BsBoxArrowUpRight className="icon" />
           </a>
         </div>
