@@ -3,7 +3,7 @@ import { BsBoxArrowUpRight } from "react-icons/bs";
 
 export function CardsEnvents({ item }) {
   const url = item.repo.url;
-
+  
   // Suponiendo que item.repo.url contiene algo como '/repos/MOISES1003/MSACod117'
   let cleanedUrl = url.replace(/\/?(api.|repos)\b/gi, "");
 
@@ -22,15 +22,16 @@ export function CardsEnvents({ item }) {
       </Type>
       <Info>
         <div className="contenInfo">
-          {/* <a href={cleanedUrl} target="_blank" rel="noopener noreferrer" className="url">
+          <a href={cleanedUrl} target="_blank" rel="noopener noreferrer" className="url">
             {item.repo.name} <BsBoxArrowUpRight className="icon" />
-          </a> */}
-          <button onClick={() => window.open(cleanedUrl, "_blank")}>
-            {item.repo.name} <BsBoxArrowUpRight className="icon" />
-          </button>
+          </a>
         </div>
-        <p>
-          Fecha:
+        <p>Actor: {item.actor.display_login}</p>
+
+        {item.payload.commits ? (
+          <p className="message">Commit: {item.payload.commits[0].message} </p>
+        ) : null}
+             {/* <p className="fecha">
           {new Date(item.created_at).toLocaleString("es-ES", {
             hour: "2-digit",
             minute: "2-digit",
@@ -40,12 +41,7 @@ export function CardsEnvents({ item }) {
             year: "numeric",
             hour12: true,
           })}
-        </p>
-        <p>Actor: {item.actor.display_login}</p>
-
-        {item.payload.commits ? (
-          <p>mensaje: {item.payload.commits[0].message} </p>
-        ) : null}
+        </p> */}
       </Info>
     </Card>
   );
@@ -86,6 +82,9 @@ const Type = styled.div`
 
 const Info = styled.div`
   width: 100%;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
   .contenInfo {
     font-size: 13px;
     text-align: end;
@@ -114,5 +113,8 @@ const Info = styled.div`
         }
       }
     }
+  }
+  @media (max-width: 800px) {
+   font-size: 12px;
   }
 `;

@@ -1,15 +1,23 @@
 import styled from "styled-components";
-import { BsBoxArrowUpRight } from "react-icons/bs";
+
 import Js from "../../../src/assets/languages/JsLogo.png";
 import Csharp from "../../../src/assets/languages/CsharpLogo.png";
-import Html from "../../../src/assets/languages/html5.png";
+import PHP from "../../../src/assets/languages/php.png";
+import COFFE from "../../../src/assets/languages/coffe.png";
+import GlSL from "../../../src/assets/languages/Gl.png";
+import Ts from "../../../src/assets/languages/TsLogo.png";
+import Python from "../../../src/assets/languages/Python.png";
 import { FaStar } from "react-icons/fa";
 
 export function CardsStarred({ item }) {
   const iconosLenguajes = {
     JavaScript: Js,
     "C#": Csharp,
-    HTML: Html,
+    PHP: PHP,
+    CoffeeScript: COFFE,
+    GLSL: GlSL,
+    TypeScript: Ts,
+    Python: Python,
     // Añade más lenguajes y sus iconos según sea necesario
   };
 
@@ -94,7 +102,7 @@ const Card = styled.div`
       /* top: 10px; */
     }
   }
-  .star{
+  .star {
     position: absolute;
     top: 5px;
     right: 5px;
@@ -115,7 +123,7 @@ const Lenguaje = styled.div`
 `;
 
 const Icono = styled.img`
-  width: 20px; // Ancho fijo
+  /* width: 20px; // Ancho fijo */
   height: 30px; // Alto fijo
   object-fit: cover; // Mantiene la proporción y recorta si es necesario
 `;
