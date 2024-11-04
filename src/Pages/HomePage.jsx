@@ -3,8 +3,10 @@ import styled from "styled-components";
 import { useFetchGit } from "../../features/home/hooks/useFetchGit";
 import { CardsEnvents } from "../../features/home/components/CardsEnvents";
 import { CardsStarred } from "../../features/home/components/CardsStarred";
+import { Loader } from "../Components/Loader";
 export function HomePage() {
-  const { events, starred, error, loadEvents, loadStarred } = useFetchGit();
+  const { events, starred, error, loading, loadEvents, loadStarred } =
+    useFetchGit();
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [hoveredIndexStarred, setHoveredIndexStarred] = useState(null);
   useEffect(() => {
@@ -14,8 +16,9 @@ export function HomePage() {
 
   return (
     <Page>
-      <h1>{error}</h1>
       <Content>
+        {loading && <Loader />}
+        {error && <h1>error: {error}</h1>}
         <ContenValues>
           <h2> Actividades de GitHub</h2>
           {events.map((item, index) => (
@@ -61,7 +64,7 @@ const Page = styled.section`
     height: auto;
     width: 100%;
   }
-  
+
   /* background-color: red; */
 `;
 const Content = styled.div`
