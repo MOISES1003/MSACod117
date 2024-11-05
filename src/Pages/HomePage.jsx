@@ -16,6 +16,10 @@ export function HomePage() {
 
   return (
     <Page>
+      <button onClick={()=>{
+        console.log(events)
+        console.log(starred)
+      }}>ver</button>
       <Content>
         {loading && <Loader />}
         {error && <h1>error: {error}</h1>}

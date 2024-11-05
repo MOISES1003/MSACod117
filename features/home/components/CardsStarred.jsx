@@ -25,7 +25,7 @@ export function CardsStarred({ item }) {
   const lenguajes = Object.keys(item.languages);
 
   return (
-    <Card>
+    <Card href={item.svn_url} target="_blank">
       <FaStar className="star" />
 
       <p className="title">{item.name}</p>
@@ -61,7 +61,7 @@ export function CardsStarred({ item }) {
   );
 }
 
-const Card = styled.div`
+const Card = styled.a`
   position: relative;
   width: 100%;
   height: auto;
