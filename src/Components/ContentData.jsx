@@ -13,7 +13,7 @@ export function ContentData() {
           <p className="name">SAUCEDO AMBICHO</p>
         </Name>
 
-        <p className="carrera">Tecnico en Ingenieria de Software</p>
+        <p className="carrera">Ingenieria de Software</p>
         <p className="descripcion">
           "Cada línea de código cuenta una historia: accesible, atractiva y
           lista para el usuario."

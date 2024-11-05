@@ -110,19 +110,21 @@ const IconContainer = styled.div`
 `;
 
 const ComponentContainer = styled.div`
-  width: 100%;
+  width: 90%;
   height: 100vh;
   position: relative; /* Necesario para las animaciones absolutas */
   /* overflow: hidden; */
   overflow-y: auto;
   overflow-x: hidden;
   background-color: transparent;
-  /* background-color: blue; */
 `;
 
 // Componente animado
 const AnimatedComponent = styled.div`
   position: absolute;
+  display:flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
