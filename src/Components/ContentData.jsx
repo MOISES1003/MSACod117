@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../assets/logo.png";
+import Button from "./Button";
+import { FaGithub } from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
+
 export function ContentData() {
   return (
     <Content>
@@ -39,6 +44,11 @@ export function ContentData() {
           </Link>
         </Item>
       </Options>
+      <Redes>
+      <Button icon={<FaGithub />} url="https://github.com/MOISES1003" />
+      <Button icon={<FaLinkedinIn />} url="https://www.linkedin.com/in/moises-saucedo-ambicho-813316174" />
+      <Button icon={<SiGmail />} url="mailto:moiseswtf123@gmail.com" />
+      </Redes>
     </Content>
   );
 }
@@ -47,7 +57,6 @@ const Content = styled.section`
   height: 100vh;
   width: 40vw;
   background-color: transparent;
-  /* background-color: Red; */
   color: white;
   display: flex;
   flex-direction: column;
@@ -73,7 +82,7 @@ const Data = styled.div`
     font-size: 20px;
     @media (max-width: 800px) {
       font-size: 15px;
-  }
+    }
   }
   .descripcion {
     max-width: 500px;
@@ -93,21 +102,20 @@ const Data = styled.div`
   }
 `;
 const Name = styled.div`
-/* background-color: red; */
-/* display:flex; */
+  /* background-color: red; */
+  /* display:flex; */
 `;
 const Options = styled.div`
-  width:80%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: start;
   @media (max-width: 800px) {
-    flex-direction: row; 
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content:center;
-    
-    }
+    justify-content: center;
+  }
 `;
 const Item = styled.div`
   /* padding: 5px; */
@@ -136,4 +144,17 @@ const Img = styled.img`
   position: absolute;
   left: 10px;
   top: 10px;
+`;
+const Redes = styled.div`
+  position: absolute;
+  width: 50%;
+  /* height: 50px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  bottom: 50px;
+  /* gap: 20px; */
+  @media (max-width: 800px){
+    width: 100%;
+  }
 `;
