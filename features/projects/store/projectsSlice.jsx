@@ -3,22 +3,36 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   projects: [
     {
-      name: "api-rivera",
+      name: "Farmavet",
       repo_Url: "ruta",
+      web_Url: "ruta",
+      demo_Url: "",
       type: "react",
-      logo: "logo",
+      logo: "../src/assets/projects/Member.jpg",
+      color: "#0E82A7",
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, expedita deserunt ad asperiores illo soluta aperiam, pariatur sequi ab voluptate harum enim praesentium reprehenderit quod quos incidunt eveniet fugit libero.",
+      active: true,
     },
     {
-      name: "api-rivera",
+      name: "ApiOpticore",
       repo_Url: "ruta",
       type: "laravel",
-      logo: "logo",
+      logo: "../src/assets/projects/Member.jpg",
+      color: "#ff2d1e",
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi,",
+      active: false,
     },
     {
       name: "api-rivera",
       repo_Url: "ruta",
       type: "c#",
-      logo: "logo",
+      logo: "../src/assets/projects/Member.jpg",
+      color: "#6C287E",
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, expedita deserunt ad asperiores illo soluta aperiam, pariatur sequi ab ",
+      active: false,
     },
   ],
   loading: false,

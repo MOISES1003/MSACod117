@@ -111,7 +111,7 @@ const IconContainer = styled.div`
 
 const ComponentContainer = styled.div`
   width: 90%;
-  height: 100vh;
+  height: 80vh;
   position: relative; /* Necesario para las animaciones absolutas */
   /* overflow: hidden; */
   overflow-y: auto;
