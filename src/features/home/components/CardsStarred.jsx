@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-import Js from "../../../src/assets/languages/JsLogo.png";
-import Csharp from "../../../src/assets/languages/CsharpLogo.png";
-import PHP from "../../../src/assets/languages/php.png";
-import COFFE from "../../../src/assets/languages/coffe.png";
-import GlSL from "../../../src/assets/languages/Gl.png";
-import Ts from "../../../src/assets/languages/TsLogo.png";
-import Python from "../../../src/assets/languages/python.png";
+import Js from "../../../assets/languages/JsLogo.png";
+import Csharp from "../../../assets/languages/CsharpLogo.png";
+import PHP from "../../../assets/languages/php.png";
+import COFFE from "../../../assets/languages/coffe.png";
+import GlSL from "../../../assets/languages/Gl.png";
+import Ts from "../../../assets/languages/TsLogo.png";
+import Python from "../../../assets/languages/python.png";
 import { FaStar } from "react-icons/fa";
 
 export function CardsStarred({ item }) {

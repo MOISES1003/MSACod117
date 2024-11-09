@@ -12,17 +12,13 @@ export function CardProjects({ item }) {
         <p>{item.description}</p>
       </ContentInfo>
       <ContentButtons>
-        {/* repo_Url: "ruta",
-      web_Url: "ruta",
-      demo_Url: "", */}
-
         {item.repo_Url && (
-          <LinkButton texto="Repositorio" icono={<FaGithub />} />
+          <LinkButton texto="Repositorio" ruta={item.repo_Url} icono={<FaGithub />} />
         )}
         {item.web_Url && (
-          <LinkButton texto="Web" icono={<FaGithub />} active={item.active} />
+          <LinkButton texto="Web" ruta={item.web_Url} icono={<FaGithub />} active={item.active} />
         )}
-        {item.demo_Url && <LinkButton texto="Demo" icono={<FaGithub />} />}
+        {item.demo_Url && <LinkButton ruta={item.demo_Url} texto="Demo" icono={<FaGithub />} />}
       </ContentButtons>
     </Card>
   );
@@ -39,26 +35,28 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: #2e2e2ebb;
   height: auto;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
   padding: 10px;
-  max-width: 500px;
-  min-width: 250px;
+  width: 100%;
   cursor: pointer;
   color: white;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   &:hover {
+    background-color: #2e2e2ebb;
     img {
       transition: all 0.3s ease;
-      border: 1px solid transparent;
+      border: 2px solid transparent;
       filter: drop-shadow(
         0px 0px 15px
           ${(props) => (props.color ? props.color : "rgba(255, 215, 0, 0.8)")}
       );
     }
   }
+  @media (max-width: 800px) {
+    background-color: #2e2e2ebb;
+      }
 `;
 const ContentImg = styled.div`
   /* background-color: red; */
@@ -69,7 +67,7 @@ const ContentImg = styled.div`
   flex-direction: column;
   gap: 10px;
   img {
-    border: 1px solid ${(props) => (props.color ? props.color : "red")};
+    border: 2px solid ${(props) => (props.color ? props.color : "red")};
     padding: 4px;
     border-radius: 50%;
     width: 80px;

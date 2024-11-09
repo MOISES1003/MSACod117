@@ -5,8 +5,28 @@ import Button from "./Button";
 import { FaGithub } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
+import { useState } from "react";
 
 export function ContentData() {
+  const [selectOption, setSelectOption] = useState(0);
+  const options = [
+    {
+      name: "HOME",
+      url: "/",
+    },
+    {
+      name: "PROYECTOS",
+      url: "/proyectos",
+    },
+    {
+      name: "EXPERIENCIA",
+      url: "/experiencia",
+    },
+    {
+      name: "COMPONENTES",
+      url: "/componente",
+    },
+  ];
   return (
     <Content>
       <Link to="/">
@@ -25,29 +45,26 @@ export function ContentData() {
         </p>
       </Data>
       <Options>
-        <Item>
-          <Link to="/proyectos">
-            <div />
-            <h4>PROYECTOS</h4>
-          </Link>
-        </Item>
-        <Item>
-          <Link to="/curriculum">
-            <div />
-            <h4>CURRICULUM</h4>
-          </Link>
-        </Item>
-        <Item>
-          <Link to="/componente">
-            <div />
-            <h4>COMPONENTES</h4>{" "}
-          </Link>
-        </Item>
+        {options.map((item, index) => (
+          <Item key={index} selectOption={selectOption === index}>
+            <Link
+              to={item.url}
+              className="link"
+              onClick={() => setSelectOption(index)}
+            >
+              <div />
+              <h4>{item.name} </h4>
+            </Link>
+          </Item>
+        ))}
       </Options>
       <Redes>
-      <Button icon={<FaGithub />} url="https://github.com/MOISES1003" />
-      <Button icon={<FaLinkedinIn />} url="https://www.linkedin.com/in/moises-saucedo-ambicho-813316174" />
-      <Button icon={<SiGmail />} url="mailto:moiseswtf123@gmail.com" />
+        <Button icon={<FaGithub />} url="https://github.com/MOISES1003" />
+        <Button
+          icon={<FaLinkedinIn />}
+          url="https://www.linkedin.com/in/moises-saucedo-ambicho-813316174"
+        />
+        <Button icon={<SiGmail />} url="mailto:moiseswtf123@gmail.com" />
       </Redes>
     </Content>
   );
@@ -130,12 +147,28 @@ const Item = styled.div`
     }
   }
   div {
-    width: 50px;
+    width: ${(props) => (props.selectOption ? "70px" : "50px")};
+    left: 50px;
     height: 1px;
     background-color: red;
     transition: all 0.5s ease;
     border: none;
     border-radius: 5px;
+  }
+  .link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  @media (max-width: 800px) {
+    div {
+      display: none;
+    }
+    .link {
+      background-color: ${(props) => (props.selectOption ? "#2a2a2a" : "transparent")};
+      padding: 2px;
+      border-radius: 5px;
+    }
   }
   /* background-color: blue; */
 `;
@@ -146,7 +179,7 @@ const Img = styled.img`
   top: 10px;
 `;
 const Redes = styled.div`
-  position: absolute;
+  /* position: absolute; */
   width: 50%;
   /* height: 50px; */
   display: flex;
@@ -154,7 +187,7 @@ const Redes = styled.div`
   justify-content: space-evenly;
   bottom: 50px;
   /* gap: 20px; */
-  @media (max-width: 800px){
+  @media (max-width: 800px) {
     width: 100%;
   }
 `;

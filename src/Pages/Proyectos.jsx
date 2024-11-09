@@ -9,15 +9,16 @@ import { FaAngular } from "react-icons/fa";
 import { FaJsSquare } from "react-icons/fa";
 
 import styled from "styled-components";
-import { ContentLenguagesCards } from "../../features/projects/components/ContentLenguagesCards";
+import { ContentLenguagesCards } from "../features/projects/components/ContentLenguagesCards";
+
 
 export function Proyectos() {
   const items = [
     {
       icon: FaReact,
       name: "React",
-      color: "#0E82A7",
-      component: <ContentLenguagesCards color="##0E82A7" type="react"/>,
+      color: "#00D8FF",
+      component: <ContentLenguagesCards color="##00D8FF" type="react"/>,
     },
     {
       icon: FaLaravel,

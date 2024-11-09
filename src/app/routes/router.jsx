@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomePage } from "../../src/Pages/HomePage";
-import { ContentData } from "../../src/Components/ContentData";
+import { HomePage } from "../../Pages/HomePage";
+import { ContentData } from "../../Components/ContentData";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { IntroScreen } from "../../src/Components/IntroScreen";
-import { Error404Page } from "../../src/Pages/ERROR/Error404Page";
-import { Proyectos } from "../../src/Pages/Proyectos";
-import { Curriculum } from "../../src/Pages/Curriculum";
-import { Componentes } from "../../src/Pages/Componentes";
+import { IntroScreen } from "../../Components/IntroScreen";
+import { Error404Page } from "../../Pages/ERROR/Error404Page";
+import { Proyectos } from "../../Pages/Proyectos";
+import { Componentes } from "../../Pages/Componentes";
+import { Experiencia } from "../../Pages/Experiencia";
 
 export function MyRouters() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -44,7 +44,7 @@ export function MyRouters() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/proyectos" element={<Proyectos />} />
-            <Route path="/curriculum" element={<Curriculum />} />
+            <Route path="/experiencia" element={<Experiencia />} />
             <Route path="/componente" element={<Componentes />} />
             <Route path="*" element={<Error404Page />} />
           </Routes>

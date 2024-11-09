@@ -2,10 +2,11 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import Typewriter from "typewriter-effect";
+import react from "../../src/assets/react.svg";
 export function IntroScreen({ setActive }) {
   const [isVisible, setIsVisible] = useState(true);
   const [hidden, setHidden] = useState(true);
-
+  const [reactVisible, setReactVisible] = useState(false);
   useEffect(() => {
     setActive(false);
     const timer = setTimeout(() => {
@@ -24,7 +25,7 @@ export function IntroScreen({ setActive }) {
   return (
     <>
       {hidden ? (
-        <IntroScreenContainer visible={isVisible}>
+        <IntroScreenContainer visible={isVisible} reactVisible={reactVisible} >
           <svg
             version="1.1"
             id="Layer_1"
@@ -106,6 +107,8 @@ export function IntroScreen({ setActive }) {
                     typewriter.stop();
                   })
                   .start();
+                  setReactVisible(!reactVisible)
+                  
               }, 1500); // retrasa los segundos que se coloque
             }}
             options={{
@@ -116,6 +119,7 @@ export function IntroScreen({ setActive }) {
               cursor: "", // Oculta el cursor
             }}
           />
+          <img src={react} alt="" />
         </IntroScreenContainer>
       ) : null}
     </>
@@ -142,6 +146,15 @@ const flashIntro = keyframes`
 
   }
 `;
+// Definimos la animación
+const rotate = keyframes`
+    0% {
+      transform: rotate(0deg)
+    }
+    100% {
+      transform: rotate(360deg)
+    }
+`;
 
 // Componente de pantalla de introducción
 const IntroScreenContainer = styled.div`
@@ -150,7 +163,7 @@ const IntroScreenContainer = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: black; 
+  background-color: black;
   color: white;
   display: flex;
   flex-direction: column;
@@ -161,7 +174,14 @@ const IntroScreenContainer = styled.div`
   transition: all 0.5s ease;
   opacity: ${(props) => (props.visible ? "1" : "0")};
   z-index: 100;
-
+  gap: 10px;
+img{
+  width:50px;
+  transition: all 0.5s ease;
+  opacity: ${(props)=>props.reactVisible ? "1": "0"};
+  animation: ${rotate} 2s linear infinite;
+  
+}
   /* Media queries para ajustar el tamaño del texto en pantallas más pequeñas */
   @media (max-width: 800px) {
     font-size: 30px; /* Tamaño de fuente para pantallas pequeñas */

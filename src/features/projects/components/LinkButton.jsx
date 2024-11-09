@@ -2,8 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 export function LinkButton({ ruta, icono, texto, active }) {
+
+  const handleClick = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
   return (
-    <Button href="*" disabled={false}>
+    <Button onClick={()=>handleClick(ruta)} active={active} disabled={active}>
       <Sign>{icono}</Sign>
       <Text>{texto}</Text>
       {active && <span>Nex</span>}
@@ -12,20 +16,21 @@ export function LinkButton({ ruta, icono, texto, active }) {
 }
 
 // Estilos
-const Button = styled.a`
+const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: start;
   width: 45px;
   height: 45px;
   border: none;
-  border-radius: 50%;
+  border-radius: 30%;
   cursor: pointer;
   position: relative;
   transition-duration: 0.5s;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   background-color: #2e2e2ebb;
   color: white;
+  opacity: ${(props) => (props.active ? 0.5 : 1)};
   &:hover {
     width: 140px;
     border-radius: 40px;

@@ -3,13 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   projects: [
     {
-      name: "Farmavet",
-      repo_Url: "ruta",
+      name: "MSAcod117",
+      repo_Url: "https://github.com/MOISES1003/MSACod117",
       web_Url: "ruta",
       demo_Url: "",
       type: "react",
       logo: "../src/assets/projects/Member.jpg",
-      color: "#0E82A7",
+      color: "#00D8FF",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, expedita deserunt ad asperiores illo soluta aperiam, pariatur sequi ab voluptate harum enim praesentium reprehenderit quod quos incidunt eveniet fugit libero.",
       active: true,

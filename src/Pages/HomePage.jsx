@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { useFetchGit } from "../../features/home/hooks/useFetchGit";
-import { CardsEnvents } from "../../features/home/components/CardsEnvents";
-import { CardsStarred } from "../../features/home/components/CardsStarred";
+import { useFetchGit } from "../features/home/hooks/useFetchGit";
+import { CardsEnvents } from "../features/home/components/CardsEnvents";
+import { CardsStarred } from "../features/home/components/CardsStarred";
 import { Loader } from "../Components/Loader";
 export function HomePage() {
   const { events, starred, error, loading, loadEvents, loadStarred } =
