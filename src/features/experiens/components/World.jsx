@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 export function World() {
-  return <Container><p>"Un viaje laboral que aún no tiene destino final"</p></Container>;
+  return (
+    <Container>
+      <p>"La Tierra no es plana, y mi código tampoco."</p>
+    </Container>
+  );
 }
 const Container = styled.div`
   height: 250px;
@@ -12,10 +16,13 @@ const Container = styled.div`
   align-items: center;
   transition: left 0.3s linear;
   text-align: center;
-margin-top:10px;  
   p{
+    /* width: 100%; */
     position: absolute;
-    bottom: 0;
+    /* background-color: red; */
+    font-weight: 600;
+    bottom: -20px;
+    color: #e1dbdb;
     @media (max-width: 800px) {
         bottom: auto;
   }
