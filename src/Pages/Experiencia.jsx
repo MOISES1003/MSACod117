@@ -39,7 +39,7 @@ const Page = styled.section`
   /* background-color: red; */
 `;
 const ContentItems = styled.div`
-  width: 100%;
+  width: 90%;
 
 `;
 const ContentWorl = styled.div`
