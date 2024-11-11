@@ -64,7 +64,6 @@ const Card = styled.div`
   }
   @media (max-width: 800px) {
     background-color: #2e2e2ebb;
-    flex-direction: column;
   }
 `;
 

@@ -23,38 +23,29 @@ export function HomePage() {
         <ContenValues>
           <h2> Actividades de GitHub</h2>
           {events.map((item, index) => (
-            <LazyLoad
-              children={
-                <StyledCard
-                  key={item.id}
-                  onMouseEnter={() => setHoveredIndexStarred(index)}
-                  onMouseLeave={() => setHoveredIndexStarred(null)}
-                  isDimmed={
-                    hoveredIndexStarred !== null &&
-                    hoveredIndexStarred !== index
-                  }
-                >
-                  <CardsEnvents item={item} />
-                </StyledCard>
+            <StyledCard
+              key={item.id}
+              onMouseEnter={() => setHoveredIndexStarred(index)}
+              onMouseLeave={() => setHoveredIndexStarred(null)}
+              isDimmed={
+                hoveredIndexStarred !== null && hoveredIndexStarred !== index
               }
-            />
+            >
+              <LazyLoad children={<CardsEnvents item={item} />} />
+            </StyledCard>
           ))}
         </ContenValues>
         <ContentStarred>
           <h2>Stars</h2>
           {starred.map((item, index) => (
-            <LazyLoad
-              children={
-                <StyledCardStarred
-                  key={item.id}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  isDimmed={hoveredIndex !== null && hoveredIndex !== index}
-                >
-                  <CardsStarred item={item} />
-                </StyledCardStarred>
-              }
-            />
+            <StyledCardStarred
+              key={item.id}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              isDimmed={hoveredIndex !== null && hoveredIndex !== index}
+            >
+              <LazyLoad children={<CardsStarred item={item} />} />
+            </StyledCardStarred>
           ))}
         </ContentStarred>
       </Content>
@@ -103,7 +94,7 @@ const ContenValues = styled.div`
   padding: 5px;
   /* background-color: red; */
   @media (max-width: 800px) {
-    overflow-x: hidden;
+    overflow: hidden;
     justify-content: center;
   }
 `;
@@ -128,6 +119,7 @@ const ContentStarred = styled.div`
   @media (max-width: 800px) {
     overflow-x: hidden;
     justify-content: center;
+    overflow: hidden;
   }
 `;
 const StyledCard = styled.div`
@@ -138,7 +130,9 @@ const StyledCard = styled.div`
   justify-content: center;
   transition: all 0.3s ease;
   opacity: ${(props) => (props.isDimmed ? 0.5 : 1)};
-  /* background-color: red; */
+  @media (max-width: 960px) {
+    width: 100%;
+  }
   @media (max-width: 800px) {
     width: 90%;
     margin-left: 0px;

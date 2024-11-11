@@ -63,7 +63,7 @@ export function CardsStarred({ item }) {
 
 const Card = styled.a`
   position: relative;
-  width: 100%;
+  width: 90%;
   height: auto;
   background-color: transparent;
   transition: all 0.3s ease;
@@ -77,7 +77,7 @@ const Card = styled.a`
   background-color: #2e2e2ebb;
 
   @media (max-width: 800px) {
-    /* flex-direction: column; */
+    flex-direction: column;
   }
   .avatar {
     width: 100%;
