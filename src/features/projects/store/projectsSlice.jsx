@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import logoPng from "../../../assets/projects/Member.jpg"
 const initialState = {
   projects: [
     {
@@ -8,7 +8,7 @@ const initialState = {
       web_Url: "ruta",
       demo_Url: "",
       type: "react",
-      logo: "../src/assets/projects/Member.jpg",
+      logo: logoPng,
       color: "#00D8FF",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, expedita deserunt ad asperiores illo soluta aperiam, pariatur sequi ab voluptate harum enim praesentium reprehenderit quod quos incidunt eveniet fugit libero.",
@@ -18,7 +18,7 @@ const initialState = {
       name: "ApiOpticore",
       repo_Url: "ruta",
       type: "laravel",
-      logo: "../src/assets/projects/Member.jpg",
+      logo: logoPng,
       color: "#ff2d1e",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi,",
@@ -28,7 +28,7 @@ const initialState = {
       name: "api-rivera",
       repo_Url: "ruta",
       type: "c#",
-      logo: "../src/assets/projects/Member.jpg",
+      logo: logoPng,
       color: "#6C287E",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, expedita deserunt ad asperiores illo soluta aperiam, pariatur sequi ab ",

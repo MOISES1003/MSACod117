@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { fetchProjects } from "../hooks/fetchProjects";
 import { CardProjects } from "./CardProjects";
 import { useState } from "react";
+import { LazyLoad } from "../../../Components/LazyLoad";
 
 export function ContentLenguagesCards({ type }) {
   const { projects } = fetchProjects();
@@ -10,16 +11,19 @@ export function ContentLenguagesCards({ type }) {
   const filteredProjects = projects.filter((project) => project.type === type);
   return (
     <Content>
-      {filteredProjects.map((project,index) => (
-        <StyledCards
-        key={index}
-        onMouseEnter={() => setHovered(index)}
-        onMouseLeave={() => setHovered(null)}
-        isDimmed={hovered !== null && hovered !== index}
-        >
-               <CardProjects item={project} />
-        </StyledCards>
-   
+      {filteredProjects.map((project, index) => (
+        <LazyLoad
+          children={
+            <StyledCards
+              key={index}
+              onMouseEnter={() => setHovered(index)}
+              onMouseLeave={() => setHovered(null)}
+              isDimmed={hovered !== null && hovered !== index}
+            >
+              <CardProjects item={project} />
+            </StyledCards>
+          }
+        />
       ))}
     </Content>
   );
@@ -42,7 +46,7 @@ const Content = styled.div`
 const StyledCards = styled.div`
   margin-left: 50px;
   display: flex;
-   max-width: 500px;
+  max-width: 500px;
   min-width: 250px;
   align-items: center;
   justify-content: center;

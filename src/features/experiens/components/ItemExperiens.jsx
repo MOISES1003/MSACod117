@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
+import { LazyLoad } from "../../../Components/LazyLoad";
 
 export function ItemExperiens({ items }) {
   const [selec, setSelect] = useState(null);
@@ -11,44 +12,49 @@ export function ItemExperiens({ items }) {
         <Date> {items.date}</Date>
       </ContentTitle>
       {items.data.map((item, index) => (
-        <Item
-          key={index}
-          selec={selec !== null && selec !== index}
-          onMouseEnter={() => setSelect(index)}
-          onMouseLeave={() => setSelect(null)}
-        >
-          <Function>
-            <p className="funtion"> {item.funcion}</p>
-            <div className="decorate"> </div>
-            <span className="ball" />
-          </Function>
-          <div className="contentData">
-            <ContentDetails>
-              <p
-                dangerouslySetInnerHTML={{ __html: item.detalles }}
-                style={{
-                  whiteSpace: "pre-wrap", // preserva espacios y saltos de línea
-                }}
-              >
-              </p>
-            </ContentDetails>
-            <ContenTecnologies>
-              {item.tecnologis.map((tecnologis) => (
-                <p className="tecnologi">{tecnologis}</p>
-              ))}
-            </ContenTecnologies>
-          </div>
-        </Item>
+        <LazyLoad
+          children={
+            <Item
+              key={index}
+              selec={selec !== null && selec !== index}
+              onMouseEnter={() => setSelect(index)}
+              onMouseLeave={() => setSelect(null)}
+            >
+              <Function>
+                <p className="funtion"> {item.funcion}</p>
+                <div className="decorate"> </div>
+                <span className="ball" />
+              </Function>
+              <div className="contentData">
+                <ContentDetails>
+                  <p
+                    dangerouslySetInnerHTML={{ __html: item.detalles }}
+                    style={{
+                      whiteSpace: "pre-wrap", // preserva espacios y saltos de línea
+                    }}
+                  ></p>
+                </ContentDetails>
+                <ContenTecnologies>
+                  {item.tecnologis.map((tecnologis) => (
+                    <p className="tecnologi">{tecnologis}</p>
+                  ))}
+                </ContenTecnologies>
+              </div>
+            </Item>
+          }
+        />
       ))}
     </ContentItems>
   );
 }
 const ContentItems = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: end;
   gap: 40px;
+  margin-bottom: 10px;
+
   @media (max-width: 800px) {
     width: 100%;
     align-items: center;
@@ -73,11 +79,16 @@ const Item = styled.div`
   border-radius: 10px;
   transition: all 0.5s ease;
   opacity: ${(props) => (props.selec ? 0.5 : 1)};
+  border-top: 1px solid transparent; /* Borde invisible por defecto */
   &:hover {
     background-color: #615e5e93;
+    border-top-color: #717171a2;
     .decorate {
       height: 100%;
     }
+    .tecnologi{
+  background-color: #1616167f;    
+  }
   }
   .contentData {
     display: flex;
@@ -85,6 +96,7 @@ const Item = styled.div`
     gap: 20px;
     padding-right: 5px;
   }
+
   @media (max-width: 800px) {
     flex-direction: column;
     background-color: transparent;
@@ -116,7 +128,7 @@ const Function = styled.div`
     background-color: #4f4f4f;
     transition: all 0.3s ease;
     box-shadow: 0px 0px 5px black;
-    border-radius:5px;
+    border-radius: 5px;
   }
   .ball {
     position: absolute;
@@ -146,10 +158,9 @@ const Function = styled.div`
     .ball {
       position: relative;
       right: auto;
-      &::after{
-         animation: ${pulse} 1s linear infinite;
+      &::after {
+        animation: ${pulse} 1s linear infinite;
       }
-     
     }
     .decorate {
       width: 100%;
@@ -166,7 +177,7 @@ const ContentDetails = styled.div`
   position: relative;
   width: 100%;
   @media (max-width: 800px) {
-    p{
+    p {
       font-size: 12px;
     }
   }
@@ -179,13 +190,14 @@ const ContenTecnologies = styled.div`
   .tecnologi {
     padding: 4px;
     font-size: 12px;
-    background-color: #1616167f;
+    background-color: #7e7e7e4c;
     border-radius: 10px;
+    transition: all 0.3s ease;
     @media (max-width: 800px) {
-    background-color: #6d6d6d63;
-    pointer-events: none; /* Desactiva los efectos de hover en pantallas pequeñas */
-    font-size: 8px;
+      background-color: #7e7e7e4c;
+      pointer-events: none; /* Desactiva los efectos de hover en pantallas pequeñas */
+      font-size: 8px;
+    }
   }
-}
   /* background-color: red; */
 `;

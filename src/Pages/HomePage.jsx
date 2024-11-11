@@ -4,6 +4,7 @@ import { useFetchGit } from "../features/home/hooks/useFetchGit";
 import { CardsEnvents } from "../features/home/components/CardsEnvents";
 import { CardsStarred } from "../features/home/components/CardsStarred";
 import { Loader } from "../Components/Loader";
+import { LazyLoad } from "../Components/LazyLoad";
 export function HomePage() {
   const { events, starred, error, loading, loadEvents, loadStarred } =
     useFetchGit();
@@ -22,29 +23,38 @@ export function HomePage() {
         <ContenValues>
           <h2> Actividades de GitHub</h2>
           {events.map((item, index) => (
-            <StyledCard
-              key={item.id}
-              onMouseEnter={() => setHoveredIndexStarred(index)}
-              onMouseLeave={() => setHoveredIndexStarred(null)}
-              isDimmed={
-                hoveredIndexStarred !== null && hoveredIndexStarred !== index
+            <LazyLoad
+              children={
+                <StyledCard
+                  key={item.id}
+                  onMouseEnter={() => setHoveredIndexStarred(index)}
+                  onMouseLeave={() => setHoveredIndexStarred(null)}
+                  isDimmed={
+                    hoveredIndexStarred !== null &&
+                    hoveredIndexStarred !== index
+                  }
+                >
+                  <CardsEnvents item={item} />
+                </StyledCard>
               }
-            >
-              <CardsEnvents item={item} />
-            </StyledCard>
+            />
           ))}
         </ContenValues>
         <ContentStarred>
           <h2>Stars</h2>
           {starred.map((item, index) => (
-            <StyledCardStarred
-              key={item.id}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              isDimmed={hoveredIndex !== null && hoveredIndex !== index}
-            >
-              <CardsStarred item={item} />
-            </StyledCardStarred>
+            <LazyLoad
+              children={
+                <StyledCardStarred
+                  key={item.id}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  isDimmed={hoveredIndex !== null && hoveredIndex !== index}
+                >
+                  <CardsStarred item={item} />
+                </StyledCardStarred>
+              }
+            />
           ))}
         </ContentStarred>
       </Content>
