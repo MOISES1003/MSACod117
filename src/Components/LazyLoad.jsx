@@ -8,7 +8,7 @@ export function LazyLoad({ children }) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.2 }
+      { threshold: 0.4 }
     );
 
     if (ref.current) observer.observe(ref.current);
