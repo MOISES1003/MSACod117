@@ -15,6 +15,7 @@ export function Experiencia() {
       {/* <Abount abount={abount} /> */}
       <ContentItems>
         <ItemExperiens items={fullStak} />
+        <ItemExperiens items={freelance} />
       </ContentItems>
     </Page>
   );

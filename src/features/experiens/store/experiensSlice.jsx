@@ -11,7 +11,7 @@ const initialState = {
     data: [
       {
         title: "IMPLENTACION DE PASARELLA DE PAGO (PLANTSANA)",
-        funcion: "",
+        funcion: "FRONT AND BACK",
         estado: "",
         detalles: `Diseño y desarrollo de aplicación de e-commerce personalizada para retail, implementando gestión de inventario, integración de pagos y optimización UX para carro de compras.`,
         tecnologis: ["Laravel", "React", "Culqi", "MySQL", "API REST", "Postman"],
@@ -36,7 +36,7 @@ const initialState = {
       },
       {
         title: "SISTEMA DE VENTA PARA CEVICHERIA (MORDISCO)",
-        funcion: "",
+        funcion: "FRONT AND BACK",
         estado: "",
         detalles: `Desarrollo de sistema de venta adaptado para restaurantes, cubriendo pedidos, inventario, facturación y puntos de cliente, optimizando el flujo de ventas.`,
         tecnologis: [
