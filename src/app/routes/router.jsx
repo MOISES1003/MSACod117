@@ -8,6 +8,7 @@ import { Error404Page } from "../../Pages/ERROR/Error404Page";
 import { Proyectos } from "../../Pages/Proyectos";
 import { Componentes } from "../../Pages/Componentes";
 import { Experiencia } from "../../Pages/Experiencia";
+import { CodigoComponente } from "../../Pages/CodigoComponente";
 
 export function MyRouters() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -46,6 +47,7 @@ export function MyRouters() {
             <Route path="/proyectos" element={<Proyectos />} />
             <Route path="/experiencia" element={<Experiencia />} />
             <Route path="/componente" element={<Componentes />} />
+            <Route path="/codigo/:id/:nombre" element={<CodigoComponente />} />
             <Route path="*" element={<Error404Page />} />
           </Routes>
         </Main>

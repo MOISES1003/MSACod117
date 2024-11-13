@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ButtomCodComponent } from "./AllComponents/ButtomCodComponent";
 
-export function CardComponents({item,index}) {
+export function CardComponents({ item, index }) {
   return (
     <ContentCard>
       <Photo src={item.image} alt={item.name} />
@@ -22,7 +22,13 @@ const ContentCard = styled.div`
   align-items: center;
   justify-content: center;
   .btnLink {
-    opacity:0;
+    opacity: 0;
+  }
+  @media (max-width: 800px) {
+    box-shadow: 0px 5px 10px #3c3c3c;
+    .btnLink {
+      opacity: 1;
+    }
   }
   &:hover {
     border-color: #2a2a2a;

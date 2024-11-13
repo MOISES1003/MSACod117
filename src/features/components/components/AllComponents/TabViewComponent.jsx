@@ -2,6 +2,38 @@ import styled from "styled-components";
 import { useState } from "react";
 
 export function TabViewComponent({ items }) {
+  const data = [
+    {
+      icon: <p>icon</p>,
+      name: "name",
+      color: "#00D8FF",
+      component: <h1>component 1</h1>,
+    },
+    {
+      icon: <p>icon</p>,
+      name: "name",
+      color: "#ff2d1e",
+      component: <h1>component 2</h1>,
+    },
+    {
+      icon: <p>icon</p>,
+      name: "name",
+      color: "#6C287E",
+      component:<h1>component 3</h1>,
+    },
+    {
+      icon: <p>icon</p>,
+      name: "name",
+      color: "#E8D44D",
+      component: <h1>component 4</h1>,
+    },
+    {
+      icon: <p>icon</p> ,
+      name: "name",
+      color: "#0E82A7",
+      component: <h1>component 5</h1> ,
+    },
+  ];
   const [selectedIcon, setSelectedIcon] = useState(0);
   const [prevIcon, setPrevIcon] = useState(0);
 
@@ -13,7 +45,7 @@ export function TabViewComponent({ items }) {
   return (
     <Content>
       <ContenIcon>
-        {items.map((item, index) => (
+        {data.map((item, index) => (
           <IconItem
             key={index}
             onClick={() => handleIconClick(index)}
@@ -32,7 +64,7 @@ export function TabViewComponent({ items }) {
 
       {/* Renderiza el componente seleccionado con animación */}
       <ComponentContainer>
-        {items.map((item, index) => (
+        {data.map((item, index) => (
           <AnimatedComponent
             key={index}
             isSelected={selectedIcon === index}
@@ -111,12 +143,14 @@ const IconContainer = styled.div`
 
 const ComponentContainer = styled.div`
   width: 90%;
-  height: 80vh;
+  height: 200px;
   position: relative; /* Necesario para las animaciones absolutas */
-  /* overflow: hidden; */
   overflow-y: auto;
   overflow-x: hidden;
   background-color: transparent;
+  color:white;
+    border-radius: 10px;
+
 `;
 
 // Componente animado
@@ -128,6 +162,7 @@ const AnimatedComponent = styled.div`
   width: 100%;
   height: 100%;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  background-color: #2a2a2a;
   opacity: ${(props) => (props.isSelected ? 1 : 0)};
   transform: ${(props) =>
     props.isSelected

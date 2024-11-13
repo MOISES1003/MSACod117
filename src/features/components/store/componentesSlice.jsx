@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import logoPng from "../../../assets/projects/Member.jpg";
-import logo2 from "../../../assets/languages/php.png";
+import logoPng from "../../../assets/components/tabViewImg.png";
 import { TabViewComponent } from "../components/AllComponents/TabViewComponent";
+import { FaReact } from "react-icons/fa6";
+import { FaCss3Alt } from "react-icons/fa";
+import { FaDatabase } from "react-icons/fa";
+
 const initialState = {
   components: [
     {
@@ -10,65 +13,69 @@ const initialState = {
       component :<TabViewComponent/>,
       codes: [
         {
-          lenguage: "jsx",
+          language: "jsx",
+          icon: <FaReact/>,
+          color: "#00D8FF",
           code: `
-    import { useState } from "react";
-    import "./TabView.css";
+            import { useState } from "react";
+            import "./TabView.css";
 
-    export function TabView({ items }) {
-      const [selectedIcon, setSelectedIcon] = useState(0);
-      const [prevIcon, setPrevIcon] = useState(0);
+            export function TabView({ items }) {
+              const [selectedIcon, setSelectedIcon] = useState(0);
+              const [prevIcon, setPrevIcon] = useState(0);
 
-      const handleIconClick = (index) => {
-        setPrevIcon(selectedIcon);
-        setSelectedIcon(index);
-      };
+              const handleIconClick = (index) => {
+                setPrevIcon(selectedIcon);
+                setSelectedIcon(index);
+              };
 
-      return (
-        <div className="content">
-          <div className="contenIcon">
-            {items.map((item, index) => (
-              <div
-                key={index}
-                className={\`iconItem \${selectedIcon === index ? "selected" : ""}\`}
-                onClick={() => handleIconClick(index)}
-              >
-                <div
-                  className="iconContainer"
-                  style={{
-                    color: item.color,
-                    transform: selectedIcon === index ? "scale(1.2)" : "scale(1)",
-                    filter: selectedIcon === index
-                      ? \`drop-shadow(0 0 10px \${item.color || "rgba(255, 215, 0, 0.8)"})
-                        drop-shadow(0 0 20px \${item.color || "rgba(255, 215, 0, 0.5)"})
-                        drop-shadow(0 0 30px \${item.color || "rgba(255, 215, 0, 0.3)"})\`
-                      : "none"
-                  }}
-                >
-                  <item.icon size={25} />
+              return (
+                <div className="content">
+                  <div className="contenIcon">
+                    {items.map((item, index) => (
+                      <div
+                        key={index}
+                        className={\`iconItem \${selectedIcon === index ? "selected" : ""}\`}
+                        onClick={() => handleIconClick(index)}
+                      >
+                        <div
+                          className="iconContainer"
+                          style={{
+                            color: item.color,
+                            transform: selectedIcon === index ? "scale(1.2)" : "scale(1)",
+                            filter: selectedIcon === index
+                              ? \`drop-shadow(0 0 10px \${item.color || "rgba(255, 215, 0, 0.8)"})
+                                drop-shadow(0 0 20px \${item.color || "rgba(255, 215, 0, 0.5)"})
+                                drop-shadow(0 0 30px \${item.color || "rgba(255, 215, 0, 0.3)"})\`
+                              : "none"
+                          }}
+                        >
+                          <item.icon size={25} />
+                        </div>
+                        <span>{item.name}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="componentContainer">
+                    {items.map((item, index) => (
+                      <div
+                        key={index}
+                        className={\`animatedComponent \${selectedIcon === index ? "selected" : ""} \${prevIcon === index ? "prevSelected" : ""}\`}
+                      >
+                        {item.component}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <span>{item.name}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="componentContainer">
-            {items.map((item, index) => (
-              <div
-                key={index}
-                className={\`animatedComponent \${selectedIcon === index ? "selected" : ""} \${prevIcon === index ? "prevSelected" : ""}\`}
-              >
-                {item.component}
-              </div>
-            ))}
-          </div>
-        </div>
-      );
-    }
+              );
+            }
             `,
         },
         {
-          lenguage: "css",
+          language: "css",
+          icon: <FaCss3Alt />,
+          color: "#5d7dfe",
           code: `
           /* Content */
           .content {
@@ -123,12 +130,14 @@ const initialState = {
 
           /* Component Container */
           .componentContainer {
-            width: 90%;
-            height: 80vh;
-            position: relative;
-            overflow-y: auto;
-            overflow-x: hidden;
-            background-color: transparent;
+          width: 90%;
+          height: 200px;
+          position: relative; /* Necesario para las animaciones absolutas */
+          overflow-y: auto;
+          overflow-x: hidden;
+          background-color: transparent;
+          color:white;
+          border-radius: 10px;
           }
 
           /* Animated Component */
@@ -140,6 +149,7 @@ const initialState = {
             width: 100%;
             height: 100%;
             transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            background-color: #2a2a2a;
             opacity: 0;
             transform: translateX(-100%);
           }
@@ -152,6 +162,45 @@ const initialState = {
           .animatedComponent.prevSelected {
             transform: translateX(100%);
           }
+          `
+        },
+        {
+          language: "json",
+          icon: <FaDatabase />,
+          color: "#e3f977",
+          code: `
+          const data = [
+          {
+            icon: <p>icon</p>,
+            name: "name",
+            color: "#00D8FF",
+            component: <h1>component 1</h1>,
+          },
+          {
+            icon: <p>icon</p>,
+            name: "name",
+            color: "#ff2d1e",
+            component: <h1>component 2</h1>,
+          },
+          {
+            icon: <p>icon</p>,
+            name: "name",
+            color: "#6C287E",
+            component:<h1>component 3</h1>,
+          },
+          {
+            icon: <p>icon</p>,
+            name: "name",
+            color: "#E8D44D",
+            component: <h1>component 4</h1>,
+          },
+          {
+            icon: <p>icon</p> ,
+            name: "name",
+            color: "#0E82A7",
+            component: <h1>component 5</h1> ,
+          },
+        ];
           `
         },
       ],

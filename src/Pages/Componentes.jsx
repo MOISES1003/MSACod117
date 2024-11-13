@@ -24,5 +24,4 @@ const Page = styled.section`
     overflow: hidden  ;
     width: 100%;
   }
-  /* background-color: red; */
 `;
