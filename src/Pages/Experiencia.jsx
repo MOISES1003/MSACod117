@@ -5,17 +5,17 @@ import Logo from "../assets/logo.png";
 import { World } from "../features/experiens/components/World";
 import { ItemExperiens } from "../features/experiens/components/ItemExperiens";
 import { LazyLoad } from "../Components/LazyLoad";
+import { ContentSkills } from "../features/experiens/components/ContentSkills";
 export function Experiencia() {
-  const { abount, fullStak, freelance } = fetchExperiens();
+  const { skills, fullStak, freelance } = fetchExperiens();
   return (
     <Page>
       <ContentWorl>
-        <LazyLoad children={<World />} />
+        <LazyLoad children={<World />} holdNumber={0.7} />
       </ContentWorl>
 
-      {/* <Abount abount={abount} /> */}
+      <ContentSkills skills={skills} />
       <ContentItems>
-
         <ItemExperiens items={fullStak} />
         <ItemExperiens items={freelance} />
       </ContentItems>
@@ -33,14 +33,16 @@ const Page = styled.section`
   overflow-y: auto;
   @media (max-width: 800px) {
     height: auto;
-    overflow: hidden  ;
+    overflow: hidden;
     width: 100%;
   }
-  /* background-color: red; */
+
 `;
 const ContentItems = styled.div`
   width: 90%;
-
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 `;
 const ContentWorl = styled.div`
   width: 100%;
