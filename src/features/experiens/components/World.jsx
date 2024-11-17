@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import world from "../../../../public/world.jfif";
+import world from "../../../../public/world.webp";
 export function World() {
   return (
     <Container>

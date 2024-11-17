@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { LinkButton } from "./LinkButton";
 import { FaGithub } from "react-icons/fa6";
+import { FaGlobe } from "react-icons/fa6";
+
 export function CardProjects({ item }) {
   return (
     <Card color={item.color}>
@@ -12,13 +14,12 @@ export function CardProjects({ item }) {
         <p>{item.description}</p>
       </ContentInfo>
       <ContentButtons>
-        {item.repo_Url && (
-          <LinkButton texto="Repositorio" ruta={item.repo_Url} icono={<FaGithub />} />
-        )}
-        {item.web_Url && (
-          <LinkButton texto="Web" ruta={item.web_Url} icono={<FaGithub />} active={item.active} />
-        )}
-        {item.demo_Url && <LinkButton ruta={item.demo_Url} texto="Demo" icono={<FaGithub />} />}
+        {
+          item.links.map((link)=>(      <LinkButton texto={link.name} ruta={link.Url} icono={link.icon} active={link.active}/>)
+      
+          )
+        }
+         {/* <LinkButton texto="aea" ruta="*" icono={<h1>h</h1>} active={true}/> */}
       </ContentButtons>
     </Card>
   );
@@ -68,7 +69,7 @@ const ContentImg = styled.div`
   gap: 10px;
   img {
     border: 2px solid ${(props) => (props.color ? props.color : "red")};
-    padding: 4px;
+    padding: 5px;
     border-radius: 50%;
     width: 80px;
     height: 80px;
@@ -85,6 +86,7 @@ const ContentImg = styled.div`
   }
   p {
     font-weight: 700;
+    text-align: center;
   }
 `;
 const ContentInfo = styled.div``;

@@ -7,10 +7,10 @@ export function LinkButton({ ruta, icono, texto, active }) {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
   return (
-    <Button onClick={()=>handleClick(ruta)} active={active} disabled={active}>
+    <Button onClick={()=>handleClick(ruta)} active={active} disabled={!active}>
       <Sign>{icono}</Sign>
       <Text>{texto}</Text>
-      {active && <span>Nex</span>}
+      {active ? null : <span>Nex</span>}
     </Button>
   );
 }
@@ -30,7 +30,7 @@ const Button = styled.button`
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   background-color: #2e2e2ebb;
   color: white;
-  opacity: ${(props) => (props.active ? 0.5 : 1)};
+  opacity: ${(props) => (props.active ? 1: 0.5 )};
   &:hover {
     width: 140px;
     border-radius: 40px;

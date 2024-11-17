@@ -113,10 +113,8 @@ const ComponentContainer = styled.div`
   width: 90%;
   height: 80vh;
   position: relative; /* Necesario para las animaciones absolutas */
-  /* overflow: hidden; */
-  overflow-y: auto;
-  overflow-x: hidden;
-  background-color: transparent;
+  overflow: hidden;
+  /* background-color: blue; */
 `;
 
 // Componente animado
@@ -125,6 +123,8 @@ const AnimatedComponent = styled.div`
   display:flex;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
   width: 100%;
   height: 100%;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
@@ -135,4 +135,5 @@ const AnimatedComponent = styled.div`
       : props.isPrevSelected
       ? "translateX(100%)" // El componente anterior sale hacia la derecha
       : "translateX(-100%)"}; // Los otros componentes entran desde la izquierda
+  /* background-color: red; */
 `;
