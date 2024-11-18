@@ -6,6 +6,7 @@ import { FaGlobe } from "react-icons/fa6";
 export function CardProjects({ item }) {
   return (
     <Card color={item.color}>
+       {item.estado && <span>proceso</span> }       
       <ContentImg color={item.color}>
         <img src={item.logo} alt="" />
         <p>{item.name}</p>
@@ -25,6 +26,7 @@ export function CardProjects({ item }) {
   );
 }
 const Card = styled.div`
+position: relative;
   clip-path: polygon(
     30px 0%,
     100% 0,
@@ -54,6 +56,13 @@ const Card = styled.div`
           ${(props) => (props.color ? props.color : "rgba(255, 215, 0, 0.8)")}
       );
     }
+  }
+  span{
+    position:absolute;
+    right: 5px;
+    top: 5px;
+    color: #fed370;
+    font-size: 12px;  
   }
   @media (max-width: 800px) {
     background-color: #2e2e2ebb;
