@@ -209,7 +209,6 @@ const initialState = {
         {
           language: "html",
           code: `
-            /* From Uiverse.io by csemszepp */ 
             <div class="container"></div>
 
             `,
@@ -252,7 +251,6 @@ const initialState = {
         {
           language: "html",
           code: `
-          /* From Uiverse.io by mrhyddenn */ 
           <div class="card">
               <div class="card_load"></div>
               <div class="card_load_extreme_title"></div>
@@ -264,7 +262,6 @@ const initialState = {
         {
           language: "css",
           code: `
-            /* From Uiverse.io by mrhyddenn */ 
             .card {
               width: 190px;
               height: 90px;
@@ -334,8 +331,7 @@ const initialState = {
       codes: [
         {
           language: "html",
-          code: `
-          /* From Uiverse.io by Smit-Prajapati */ 
+          code: ` 
           <div class="radio-container">
             <input checked="" id="radio-free" name="radio" type="radio" />
             <label for="radio-free">Free</label>
@@ -354,7 +350,6 @@ const initialState = {
         {
           language: "css",
           code: `
-            /* From Uiverse.io by Smit-Prajapati */ 
             .radio-container {
               --main-color: #f7e479;
               --main-color-opacity: #f7e4791c;
@@ -483,7 +478,6 @@ const initialState = {
         {
           language: "html",
           code: `
-          /* From Uiverse.io by VijinV */ 
           <div class="inputbox">
               <input required="required" type="text">
               <span>Username</span>
@@ -495,7 +489,6 @@ const initialState = {
         {
           language: "css",
           code: `
-            /* From Uiverse.io by VijinV */ 
             .inputbox {
               position: relative;
               width: 196px;
