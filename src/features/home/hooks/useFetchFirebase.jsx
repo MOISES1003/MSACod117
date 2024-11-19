@@ -12,6 +12,9 @@ export function useFetchFirebase() {
     await dispatch(incrementFirebaseViews());
     dispatch(fetchFirebaseViews());
   };
+  const loadFecth = async()=>{
+    dispatch(fetchFirebaseViews());
+  }
 
-  return { firebase, loadFirebase, loading, error};
+  return { firebase, loadFirebase,loadFecth, loading, error};
 }
