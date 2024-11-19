@@ -50,9 +50,14 @@ const ContentTitle = styled.div`
     position: absolute;
     font-size: 30px;
     left: 50px;
+    @media (max-width: 800px) {
+      top: -15px;
+      left: 10px;
+    }
   }
 `;
 const ContentComponent = styled.div`
+position: relative;
   width: 90%;
   background-color: #212121;
   border-radius:10px;

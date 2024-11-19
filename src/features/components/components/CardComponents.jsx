@@ -25,6 +25,7 @@ const ContentCard = styled.div`
     opacity: 0;
   }
   @media (max-width: 800px) {
+    margin-bottom: 1em;
     box-shadow: 0px 5px 10px #3c3c3c;
     .btnLink {
       opacity: 1;
