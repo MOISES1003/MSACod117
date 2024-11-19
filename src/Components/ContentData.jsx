@@ -11,7 +11,7 @@ import { FaEye } from "react-icons/fa";
 
 export function ContentData() {
   const [selectOption, setSelectOption] = useState(0);
-  const { firebase, loadFirebase,loadFecth } = useFetchFirebase();
+  const { firebase, loadFirebase } = useFetchFirebase();
   const options = [
     {
       name: "HOME",
@@ -36,8 +36,6 @@ export function ContentData() {
     if(!storedView){
       sessionStorage.setItem("view", JSON.stringify(true));
       loadFirebase();
-    }else{
-      loadFecth();
     }
   }, []);
   return (

@@ -1,15 +1,24 @@
-// fetchGitEvents.js
 import { Start, Failure, fetchFirebaseSuccess } from "../store/homeSlice";
 import { db } from "../../../env/enviroment";
-import { doc, getDoc } from "firebase/firestore";
-export const fetchFirebaseViews = () => async(dispatch) => {
+import { doc, onSnapshot } from "firebase/firestore";
+
+export const fetchFirebaseViews = () => (dispatch) => {
     dispatch(Start());
     const visitasRef = doc(db, "visitas", "23bCIlytGq4TZ7tL6UGZ");
-    try {
-        const visitasSnapshot = await getDoc(visitasRef);
-        dispatch(fetchFirebaseSuccess(visitasSnapshot.data()));
 
+    try {
+        // Escuchar actualizaciones en tiempo real
+        const unsubscribe = onSnapshot(visitasRef, (snapshot) => {
+            if (snapshot.exists()) {
+                dispatch(fetchFirebaseSuccess(snapshot.data()));
+            } else {
+                console.error("El documento no existe.");
+            }
+        });
+
+        // Devolver función para cancelar suscripción (opcional, si lo necesitas)
+        return unsubscribe;
     } catch (error) {
-        dispatch(Failure("Error fetching events:" + error.toString()));
+        dispatch(Failure("Error fetching events: " + error.toString()));
     }
 };
