@@ -5,10 +5,13 @@ import Button from "./Button";
 import { FaGithub } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useFetchFirebase } from "../features/home/hooks/useFetchFirebase";
+import { FaEye } from "react-icons/fa";
 
 export function ContentData() {
   const [selectOption, setSelectOption] = useState(0);
+  const { firebase, loadFirebase } = useFetchFirebase();
   const options = [
     {
       name: "HOME",
@@ -27,13 +30,21 @@ export function ContentData() {
       url: "/componente",
     },
   ];
+
+  useEffect(() => {
+    loadFirebase();
+  }, []);
   return (
     <Content>
       <Link to="/">
         <Img srcSet={Logo} />
       </Link>
       <Data>
-        <Name>
+        <Name
+          onClick={() => {
+            console.log(firebase.contador);
+          }}
+        >
           <p className="name">MOISES</p>
           <p className="name">SAUCEDO AMBICHO</p>
         </Name>
@@ -66,6 +77,10 @@ export function ContentData() {
         />
         <Button icon={<SiGmail />} url="mailto:moiseswtf123@gmail.com" />
       </Redes>
+      <ContentView>
+        <FaEye />
+        <p>{firebase.contador}</p>
+      </ContentView>
     </Content>
   );
 }
@@ -165,7 +180,8 @@ const Item = styled.div`
       display: none;
     }
     .link {
-      background-color: ${(props) => (props.selectOption ? "#2a2a2a" : "transparent")};
+      background-color: ${(props) =>
+        props.selectOption ? "#2a2a2a" : "transparent"};
       padding: 2px;
       border-radius: 5px;
     }
@@ -189,5 +205,20 @@ const Redes = styled.div`
   /* gap: 20px; */
   @media (max-width: 800px) {
     width: 100%;
+  }
+`;
+const ContentView = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  bottom: 10px;
+  left: 10px;
+  @media (max-width: 800px) {
+    bottom: auto;
+    left: auto;
+    top: 10px;
+    right: 10px;
   }
 `;
