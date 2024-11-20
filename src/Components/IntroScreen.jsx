@@ -3,23 +3,24 @@ import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import Typewriter from "typewriter-effect";
 import react from "../../src/assets/react.svg";
+import { FirebaseLogoWithFire } from "./FirebaseLogoWithFire";
 export function IntroScreen({ setActive }) {
   const [isVisible, setIsVisible] = useState(true);
   const [hidden, setHidden] = useState(true);
   const [reactVisible, setReactVisible] = useState(false);
   useEffect(() => {
     setActive(false);
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 5000); // Duración de la animación en milisegundos
-    const hiden = setTimeout(() => {
-      setHidden(false);
-    }, 5500); // Duración de la animación en milisegundos
+    // const timer = setTimeout(() => {
+    //   setIsVisible(false);
+    // }, 5000); // Duración de la animación en milisegundos
+    // const hiden = setTimeout(() => {
+    //   setHidden(false);
+    // }, 5500); // Duración de la animación en milisegundos
 
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(hiden);
-    }; // Limpia el timer si el componente se desmonta
+    // return () => {
+    //   clearTimeout(timer);
+    //   clearTimeout(hiden);
+    // }; // Limpia el timer si el componente se desmonta
   }, []);
 
   return (
@@ -119,7 +120,11 @@ export function IntroScreen({ setActive }) {
               cursor: "", // Oculta el cursor
             }}
           />
-          <img src={react} alt="" />
+          <ContentLogos>
+              <img src={react} alt="" className="react" />
+          <FirebaseLogoWithFire/>
+          </ContentLogos>
+        
         </IntroScreenContainer>
       ) : null}
     </>
@@ -175,7 +180,7 @@ const IntroScreenContainer = styled.div`
   opacity: ${(props) => (props.visible ? "1" : "0")};
   z-index: 100;
   gap: 10px;
-img{
+.react{
   width:50px;
   transition: all 0.5s ease;
   opacity: ${(props)=>props.reactVisible ? "1": "0"};
@@ -214,4 +219,8 @@ img{
       stroke-dashoffset: 0; /* Llega al final */
     }
   }
+`;
+const ContentLogos = styled.div`
+display:flex;
+gap: 10px;
 `;
