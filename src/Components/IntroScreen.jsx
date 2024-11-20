@@ -10,17 +10,17 @@ export function IntroScreen({ setActive }) {
   const [reactVisible, setReactVisible] = useState(false);
   useEffect(() => {
     setActive(false);
-    // const timer = setTimeout(() => {
-    //   setIsVisible(false);
-    // }, 5000); // Duración de la animación en milisegundos
-    // const hiden = setTimeout(() => {
-    //   setHidden(false);
-    // }, 5500); // Duración de la animación en milisegundos
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 5500); // Duración de la animación en milisegundos para que la opacidad pase de 1 a 0
+    const hiden = setTimeout(() => {
+      setHidden(false);
+    }, 6000); // Duración de la animación en milisegundos para que su display sea none
 
-    // return () => {
-    //   clearTimeout(timer);
-    //   clearTimeout(hiden);
-    // }; // Limpia el timer si el componente se desmonta
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(hiden);
+    }; // Limpia el timer si el componente se desmonta
   }, []);
 
   return (
