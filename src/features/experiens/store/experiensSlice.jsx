@@ -199,6 +199,43 @@ const initialState = {
           "Postman",
         ],
       },
+      {
+        title: "BACKEND PARA MOTORES DE BUSQUEDA(CODEPER Y CENAPRO)",
+        funcion: "BACK",
+        estado: "",
+        detalles: `Desarrollo backend para implementaciones de motores de busqueda de clientes como certivifacos deaprendizaje para las empresas codeper y cenapro`,
+        tecnologis: [
+       ".net core",
+       "Laravel",
+       "Node"
+        ],
+      },
+      {
+        title: "ANALISIS , CREACION Y DESPLIGUE DE BD",
+        funcion: "DATA ANALYST",
+        estado: "",
+        detalles: `Encargo en el analisis de los datos , la estructuracion de las bases de datos en los proyectos particiapados`,
+        tecnologis: [
+        "MYSQL",
+        "SqlServer",
+        "Firebase",
+        "PoweBi",
+        "Cubos Olap",
+        "UML"
+        ],
+      },
+      {
+        title: "STATIC PAGE AND MAIN PAGE",
+        funcion: "FRONT",
+        estado: "",
+        detalles: `Realizacion de paginas estaticas o de una sola pagina, para diferentes empresas de forma promocional o informacional`,
+        tecnologis: [
+        "React",
+        "Angular",
+        "Js",
+        "Html","css","sass"
+        ],
+      },
     ],
   },
   freelance: {
@@ -212,15 +249,12 @@ const initialState = {
         detalles: `Desarrollo de ERP para gestión integral en centros oftalmológicos, incluyendo inventario y administración de pacientes en un sistema modular y eficiente.`,
         tecnologis: [
           "MySQL",
-          ".Net Framework",
-          "C#",
-          "Arq. 3 capas",
-          "Advanced Installer",
-          "API REST",
-          "Laravel",
-          "Flutter",
-          "Firebase",
-          "Postman",
+          "Redux",
+          "Vertical Slice",
+          "Arc, CLEAN",
+          "LARAVEL",
+          "styled Component",
+          "Cookies"
         ],
       },
       {

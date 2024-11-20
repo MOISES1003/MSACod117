@@ -7,13 +7,16 @@ import { ItemExperiens } from "../features/experiens/components/ItemExperiens";
 import { LazyLoad } from "../Components/LazyLoad";
 import { ContentSkills } from "../features/experiens/components/ContentSkills";
 export function Experiencia() {
-  const { skills, fullStak, freelance } = fetchExperiens();
+  const { skills,abount, fullStak, freelance } = fetchExperiens();
   return (
     <Page>
       <ContentWorl>
         <LazyLoad children={<World />} holdNumber={0.7} />
       </ContentWorl>
+      <ContentAbount>
+<p>{abount}</p>
 
+      </ContentAbount>
       <ContentSkills skills={skills} />
       <ContentItems>
         <ItemExperiens items={fullStak} />
@@ -36,7 +39,6 @@ const Page = styled.section`
     overflow: hidden;
     width: 100%;
   }
-
 `;
 const ContentItems = styled.div`
   width: 90%;
@@ -51,3 +53,9 @@ const ContentWorl = styled.div`
   align-items: center;
   padding-top: 15px;
 `;
+const ContentAbount = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  padding: 5px;
+  `;
