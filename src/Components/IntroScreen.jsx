@@ -122,7 +122,7 @@ export function IntroScreen({ setActive }) {
           />
           <ContentLogos>
               <img src={react} alt="" className="react" />
-          <FirebaseLogoWithFire/>
+          <FirebaseLogoWithFire reactVisible={reactVisible}/>
           </ContentLogos>
         
         </IntroScreenContainer>

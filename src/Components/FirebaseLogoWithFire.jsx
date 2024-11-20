@@ -2,9 +2,9 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import FireLogo from "../assets/fireLogo.png"
 
-export function FirebaseLogoWithFire  ()  {
+export function FirebaseLogoWithFire  ({reactVisible})  {
   return (
-    <Container>
+    <Container reactVisible={reactVisible}>
       {/* Logo de Firebase */}
       <Logo src={FireLogo} alt="Firebase Logo" />
 
@@ -34,6 +34,7 @@ const Container = styled.div`
   position: relative;
   width: 100px;
   height: 100px;
+  opacity: ${(props)=>props.reactVisible ? "1": "0"};
   /* background:red; */
 `;
 
