@@ -1,5 +1,5 @@
 import { Start, Failure, fetchFirebaseSuccess } from "../store/homeSlice";
-import { db } from "../../../env/enviroment";
+import { db } from "../../../env/enviromentFirebase";
 import { doc, onSnapshot } from "firebase/firestore";
 
 export const fetchFirebaseViews = () => (dispatch) => {

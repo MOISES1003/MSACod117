@@ -1,6 +1,6 @@
 // fetchGitEvents.js
 import { Start, Failure } from "../store/homeSlice";
-import { db } from "../../../env/enviroment";
+import { db } from "../../../env/enviromentFirebase";
 import { doc, getDoc, updateDoc, increment } from "firebase/firestore";
 export const incrementFirebaseViews = () => async(dispatch) => {
     dispatch(Start());;

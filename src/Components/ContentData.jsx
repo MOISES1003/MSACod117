@@ -33,7 +33,7 @@ export function ContentData() {
 
   useEffect(() => {
     const storedView = JSON.parse(sessionStorage.getItem("view"));
-    if(!storedView){
+    if (!storedView) {
       sessionStorage.setItem("view", JSON.stringify(true));
       loadFirebase();
     }
