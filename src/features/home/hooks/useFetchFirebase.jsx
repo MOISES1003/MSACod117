@@ -5,10 +5,9 @@ import { useEffect } from "react";
 
 export function useFetchFirebase() {
   const dispatch = useDispatch();
-  const firebase = useSelector((state) => state.home.firebase || []);
+  const firebase = useSelector((state) => state.home.firebase || []);   
   const loading = useSelector((state) => state.home.loading);
   const error = useSelector((state) => state.home.error);
-
   useEffect(() => {
     const unsubscribe = dispatch(fetchFirebaseViews());
     // Cleanup: Cancelar la suscripción cuando se desmonte el componente

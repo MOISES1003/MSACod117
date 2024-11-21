@@ -5,7 +5,6 @@ import { doc, onSnapshot } from "firebase/firestore";
 export const fetchFirebaseViews = () => (dispatch) => {
     dispatch(Start());
     const visitasRef = doc(db, "visitas", "23bCIlytGq4TZ7tL6UGZ");
-
     try {
         // Escuchar actualizaciones en tiempo real
         const unsubscribe = onSnapshot(visitasRef, (snapshot) => {
