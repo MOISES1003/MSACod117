@@ -65,6 +65,35 @@ const initialState = {
       ],
     },
     {
+      name: "Cubo Olap con ETL",
+      type: "c#",
+      logo: "https://i.ibb.co/5KGcN25/transformacion-de-datos.png",
+      color: "#6C287E",
+      description:
+        "Diseñé un cubo OLAP con datos de Telefónica, procesados mediante un flujo ETL para estructurar y optimizar la información. Los resultados se integraron en Power BI, generando visualizaciones interactivas y paneles estratégicos para la toma de decisiones.",
+        estado : false,
+      links: [
+        // {
+        //   name: "Repositorio",
+        //   active: true,
+        //   Url: "https://github.com/MOISES1003/FullStackCurso",
+        //   icon: <FaGithub />,
+        // },
+        // {
+        //   name: "Web",
+        //   active: false,
+        //   Url: "",
+        //   icon: <FaGlobe/>
+        // },
+        // {
+        //   name: "Demo",
+        //   active: false, // aqui si esta activado se mostrara la etiqueda de "new" si no, no se mostrara
+        //   Url: "", // la url tiene que estar vacia para que no se muestre el icono
+        //   icon: <IoLogoGameControllerA/>
+        // }
+      ],
+    },
+    {
       name: "Curso de React",
       type: "react",
       logo: "https://i.ibb.co/VQg71J5/science.png",
